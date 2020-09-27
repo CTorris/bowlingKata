@@ -12,4 +12,9 @@ public class KnockedPins implements Tries {
     public String symbol() {
         return String.valueOf(this.knockedPins);
     }
+
+    @Override
+    public Integer points() {
+        return knockedPins;
+    }
 }
