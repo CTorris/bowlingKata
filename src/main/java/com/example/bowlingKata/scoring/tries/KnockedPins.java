@@ -1,8 +1,10 @@
 package com.example.bowlingKata.scoring.tries;
 
+import com.example.bowlingKata.scoring.SpecialSymbols;
+
 public class KnockedPins implements Tries {
 
-    private final int knockedPins;
+    private final Integer knockedPins;
 
     public KnockedPins(final int knockedPins) {
         this.knockedPins = knockedPins;
@@ -16,5 +18,10 @@ public class KnockedPins implements Tries {
     @Override
     public Integer points() {
         return knockedPins;
+    }
+
+    @Override
+    public boolean is(SpecialSymbols specialSymbol) {
+        return false;
     }
 }

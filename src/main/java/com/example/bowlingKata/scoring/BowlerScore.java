@@ -18,11 +18,20 @@ public class BowlerScore {
 //        throw new NotImplementedException();
         int totalScore = 0;
         for(int i = 0; i < MAX_FRAMES_WITHOUT_SPECIAL_TRIES; i++) {
-            if (SpecialSymbols.STRIKE.symbol().equals(tries.get(i).symbol())) {
-                totalScore += tries.get(i).points() + tries.get(i + 1).points() + tries.get(i + 2).points();
+            if (isStrike(i)) {
+                totalScore += strikeScore(i);
             }
         }
         return totalScore;
+    }
+
+    private int strikeScore(int i) {
+        return tries.get(i).points() + tries.get(i + 1).points() + tries.get(i + 2).points();
+    }
+
+
+    private boolean isStrike(int i) {
+        return tries.get(i).is(SpecialSymbols.STRIKE);
     }
 
     public String toString() {
