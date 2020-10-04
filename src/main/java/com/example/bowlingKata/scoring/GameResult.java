@@ -22,6 +22,10 @@ public class GameResult {
         throw new NotImplementedException("This method is not implemented yet!");
     }
 
+    public List<Character> rolls() {
+        return this.rolls;
+    }
+
     @Override
     public String toString() {
         return this.rolls.stream().map(Object::toString).collect(Collectors.joining());
