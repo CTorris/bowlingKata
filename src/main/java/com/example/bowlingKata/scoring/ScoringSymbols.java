@@ -19,7 +19,6 @@ public enum ScoringSymbols {
         return this.symbol.equals(symbol);
     }
 
-    //TODO Revisar si siempre que se llama es para obtener el string
     public Character symbol() {
         return this.symbol;
     }

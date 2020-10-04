@@ -1,37 +1,29 @@
 package com.example.bowlingKata.scoring;
 
+import com.example.bowlingKata.utils.NotImplementedException;
+
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class GameResult {
-    private final Rolls rolls;
+    private final List<Character> rolls;
 
-    public GameResult(Rolls rolls) {
+    public GameResult(List<Character> rolls) {
         this.rolls = rolls;
     }
 
     public static GameResult from(String rolls) {
         Objects.requireNonNull(rolls);
-        return new GameResult(Rolls.from(rolls));
+        return new GameResult(rolls.chars().mapToObj(c -> (char) c).collect(Collectors.toList()));
     }
 
-    public int score() {
-        int gameScore = 0;
-        int actualRoll = 0;
-        while (actualRoll <= rolls.lastFrame()) {
-            gameScore += scoreFrame(actualRoll);
-            actualRoll = rolls.nextRollIndex(actualRoll);
-        }
-        return gameScore;
-    }
-
-    private Integer scoreFrame(int frameIndex) {
-        if (rolls.isStrikeFrame(frameIndex)) return rolls.strikeScore(frameIndex);
-        else if (rolls.isSpareFrame(frameIndex)) return rolls.spareScore(frameIndex);
-        return rolls.pinsScore(frameIndex);
+    public int score() throws NotImplementedException {
+        throw new NotImplementedException("This method is not implemented yet!");
     }
 
     @Override
     public String toString() {
-        return this.rolls.toString();
+        return this.rolls.stream().map(Object::toString).collect(Collectors.joining());
     }
 }
