@@ -9,7 +9,7 @@ public class KnockedPins implements Roll {
     private static final Integer NO_PINS = 0;
     private final Integer value;
 
-    public KnockedPins(final Integer value) {
+    private KnockedPins(final Integer value) {
         this.value = value;
     }
 
