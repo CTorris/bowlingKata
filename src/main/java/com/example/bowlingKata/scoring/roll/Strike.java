@@ -5,6 +5,7 @@ import com.example.bowlingKata.scoring.frame.Roll;
 
 public class Strike implements Roll {
     private static final Integer STRIKE_SCORE = 10;
+
     private Strike() {}
 
     public static Strike from(Character character) {
