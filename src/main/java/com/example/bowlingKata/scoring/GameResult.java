@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class GameResult {
     private final List<Character> rolls;
 
-    public GameResult(List<Character> rolls) {
+    private GameResult(List<Character> rolls) {
         this.rolls = rolls;
     }
 
